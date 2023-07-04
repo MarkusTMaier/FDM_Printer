@@ -106,10 +106,14 @@ def get_values():
         var.jobFilamentLength = c.job_info()['job']['filament']['length']
     except KeyError:
         var.jobFilamentLength = c.job_info()['job']['filament']['tool0']['length']
+    except TypeError:
+        var.jobFilamentLength = None
     try:
         var.jobFilamentVolume = c.job_info()['job']['filament']['volume']
     except KeyError:
         var.jobFilamentVolume = c.job_info()['job']['filament']['tool0']['volume']
+    except TypeError:
+        var.jobFilamentVolume = None
 
     var.jobFileDate = c.job_info()['job']['file']['date']
     # var.jobFileDisplay = c.job_info()['job']['file']['display']       #ssems to have disappeared
