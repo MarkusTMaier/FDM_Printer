@@ -1,9 +1,8 @@
 import asyncio
-import influxdb_client, os, time
+import influxdb_client
 import configparser
-import datetime
 
-from influxdb_client import InfluxDBClient, Point, WritePrecision
+from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from opcuaclient import get_values
 
@@ -12,6 +11,8 @@ config.read('config.ini')
 url = config.get('influxDb', 'url')
 token = config.get('influxDb', 'token')
 org = config.get('influxDb', 'org')
+
+MAX_RETRIES = 5
 
 async def main():
     # Set up InfluxDB client
@@ -23,7 +24,17 @@ async def main():
 
     while True:
         print("______________prepare values to send____________")
-        values = await get_values()
+
+        for attempt in range(MAX_RETRIES):
+            try:
+                values = await get_values()
+                break
+            except asyncio.exceptions.TimeoutError:
+                print(f"Connection attempt {attempt + 1} failed. Retrying...")
+        else:
+            print(f"Could not establish connection after {MAX_RETRIES} attempts.")
+            return  # or exit the program, or handle the error in some other way
+
         data = {}
 
         for i in range(6001, 6013):
