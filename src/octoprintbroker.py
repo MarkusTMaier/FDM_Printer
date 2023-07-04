@@ -102,8 +102,15 @@ def get_values():
     #print("Retrieve information about the current job: ", c.job_info())
     # var.jobAveragePrintTime = c.job_info()['job']['averagePrintTime']     #seems to have disappeared
     var.jobEstimatedPrintTime = c.job_info()['job']['estimatedPrintTime']
-    var.jobFilamentLength = c.job_info()['job']['filament']['length']
-    var.jobFilamentVolume = c.job_info()['job']['filament']['volume']
+    try:
+        var.jobFilamentLength = c.job_info()['job']['filament']['length']
+    except KeyError:
+        var.jobFilamentLength = c.job_info()['job']['filament']['tool0']['length']
+    try:
+        var.jobFilamentVolume = c.job_info()['job']['filament']['volume']
+    except KeyError:
+        var.jobFilamentVolume = c.job_info()['job']['filament']['tool0']['volume']
+
     var.jobFileDate = c.job_info()['job']['file']['date']
     # var.jobFileDisplay = c.job_info()['job']['file']['display']       #ssems to have disappeared
     var.jobFileName = c.job_info()['job']['file']['name']
