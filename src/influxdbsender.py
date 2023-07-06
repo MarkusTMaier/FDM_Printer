@@ -12,7 +12,7 @@ url = config.get('influxDb', 'url')
 token = config.get('influxDb', 'token')
 org = config.get('influxDb', 'org')
 
-MAX_RETRIES = 5
+MAX_RETRIES = 30
 
 async def main():
     # Set up InfluxDB client
@@ -31,6 +31,7 @@ async def main():
                 break
             except asyncio.exceptions.TimeoutError:
                 print(f"Connection attempt {attempt + 1} failed. Retrying...")
+                await asyncio.sleep(2)
         else:
             print(f"Could not establish connection after {MAX_RETRIES} attempts.")
             return  # or exit the program, or handle the error in some other way
