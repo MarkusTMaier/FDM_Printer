@@ -26,10 +26,8 @@ RANGES = [
     range(6052, 6172),
 ]
 
-# Dictionary to store the last sent value for each key
+# Dictionary to store the last sent value and time for each key
 last_sent_values = {}
-# Time when the last data was sent
-last_sent_time = None
 
 async def fetch_values():
     for attempt in range(MAX_RETRIES):
@@ -56,7 +54,7 @@ def prepare_data_dict(values):
     return data
 
 async def main():
-    global last_sent_values, last_sent_time
+    global last_sent_values
 
     # Set up InfluxDB client
     write_client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
@@ -79,18 +77,19 @@ async def main():
         points_to_send = []
 
         for key, value in data.items():
+            last_sent = last_sent_values.get(key, {})
+            last_sent_value = last_sent.get('value')
+            last_sent_time = last_sent.get('time')
+
             # Check if data has changed or 3 minutes have passed
-            if last_sent_values.get(key) != value or last_sent_time is None or current_time - last_sent_time >= 180:
+            if last_sent_value != value['value'] or last_sent_time is None or current_time - last_sent_time >= 180:
                 points_to_send.append(Point(key).tag("printer_id", value["printer_id"]).field(value["unit"], value["value"]))
-                # Update the last sent value for the key
-                last_sent_values[key] = value
+                # Update the last sent value and time for the key
+                last_sent_values[key] = {'value': value['value'], 'time': current_time}
 
         if points_to_send:
             write_api.write(bucket=bucket, org=org, record=points_to_send)
             print("__________________values sent!__________________")
-
-            # Update the last sent time
-            last_sent_time = current_time
 
         await asyncio.sleep(0.1)
 
