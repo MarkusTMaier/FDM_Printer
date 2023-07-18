@@ -51,5 +51,4 @@ async def get_values():
 
             print(f"Value{i}: ", final_value)
 
-        # await client.disconnect()
     return values

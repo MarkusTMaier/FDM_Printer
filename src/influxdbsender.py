@@ -63,10 +63,10 @@ async def main():
             continue
 
         points = make_points(values)
-        for point in points:
-            write_api.write(bucket=bucket, org=org, record=point)
+        write_api.write(bucket=bucket, org=org, record=points)
 
         print("__________________values sent!__________________")
+        await asyncio.sleep(0.1)
 
 if __name__ == "__main__":
     asyncio.run(main())
