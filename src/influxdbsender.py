@@ -2,6 +2,7 @@ import asyncio
 import influxdb_client
 import configparser
 import logging
+import time
 
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
@@ -25,6 +26,11 @@ RANGES = [
     range(6052, 6172),
 ]
 
+# Dictionary to store the last sent value for each key
+last_sent_values = {}
+# Time when the last data was sent
+last_sent_time = None
+
 async def fetch_values():
     for attempt in range(MAX_RETRIES):
         try:
@@ -34,9 +40,9 @@ async def fetch_values():
             await asyncio.sleep(2)
     else:
         logging.error(f"Could not establish connection after {MAX_RETRIES} attempts.")
-        return None  # Or choose your error handling method here
+        return None
 
-def make_points(values):
+def prepare_data_dict(values):
     data = {}
     for r in RANGES:
         for i in r:
@@ -47,9 +53,11 @@ def make_points(values):
                 "value": values.get(key),
             }
 
-    return [Point(key).tag("printer_id", data[key]["printer_id"]).field(data[key]["unit"], data[key]["value"]) for key in data]
+    return data
 
 async def main():
+    global last_sent_values, last_sent_time
+
     # Set up InfluxDB client
     write_client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
     # Define the write api
@@ -62,10 +70,28 @@ async def main():
         if values is None:  # if the connection could not be established, try again
             continue
 
-        points = make_points(values)
-        write_api.write(bucket=bucket, org=org, record=points)
+        data = prepare_data_dict(values)
 
-        print("__________________values sent!__________________")
+        # Get current time
+        current_time = time.time()
+
+        # Create a variable to store the points to send
+        points_to_send = []
+
+        for key, value in data.items():
+            # Check if data has changed or 3 minutes have passed
+            if last_sent_values.get(key) != value or last_sent_time is None or current_time - last_sent_time >= 180:
+                points_to_send.append(Point(key).tag("printer_id", value["printer_id"]).field(value["unit"], value["value"]))
+                # Update the last sent value for the key
+                last_sent_values[key] = value
+
+        if points_to_send:
+            write_api.write(bucket=bucket, org=org, record=points_to_send)
+            print("__________________values sent!__________________")
+
+            # Update the last sent time
+            last_sent_time = current_time
+
         await asyncio.sleep(0.1)
 
 if __name__ == "__main__":
