@@ -36,7 +36,7 @@ class DataCollector:
 
         self.last_sent_values = {}
 
-    async def fetch_values(self):
+    async def _fetch_values(self):
         for attempt in range(self.max_retries):
             try:
                 return await get_values()
@@ -47,7 +47,7 @@ class DataCollector:
             logging.error(f"Could not establish connection after {self.max_retries} attempts.")
             return None
 
-    def prepare_data_dict(self, values):
+    def _prepare_data_dict(self, values):
         return {
             f"value{i}": {
                 "printer_id": self.printer_id,
@@ -64,38 +64,41 @@ class DataCollector:
         write_api = write_client.write_api(write_options=SYNCHRONOUS)
 
         while True:
-            logging.info("______________prepare values to send____________")
+            try:
+                logging.info("______________prepare values to send____________")
 
-            values = await self.fetch_values()
-            if values is None:
-                continue
+                values = await self._fetch_values()
+                if values is None:
+                    continue
 
-            data = self.prepare_data_dict(values)
+                data = self._prepare_data_dict(values)
 
-            # Get current time
-            current_time = time.time()
+                # Get current time
+                current_time = time.time()
 
-            points_to_send = []
+                points_to_send = []
 
-            for key, value in data.items():
-                last_sent = self.last_sent_values.get(key, {})
-                last_sent_value = last_sent.get('value')
-                last_sent_time = last_sent.get('time')
+                for key, value in data.items():
+                    last_sent = self.last_sent_values.get(key, {})
+                    last_sent_value = last_sent.get('value')
+                    last_sent_time = last_sent.get('time')
 
-                # Check if data has changed or 3 minutes have passed
-                if last_sent_value != value[
-                    'value'] or last_sent_time is None or current_time - last_sent_time >= self.send_interval:
-                    points_to_send.append(
-                        Point(key).tag("printer_id", value["printer_id"]).field(value["unit"], value["value"]))
-                    # Update the last sent value and time for the key
-                    self.last_sent_values[key] = {'value': value['value'], 'time': current_time}
+                    # Check if data has changed or 3 minutes have passed
+                    if last_sent_value != value[
+                        'value'] or last_sent_time is None or current_time - last_sent_time >= self.send_interval:
+                        points_to_send.append(
+                            Point(key).tag("printer_id", value["printer_id"]).field(value["unit"], value["value"]))
+                        # Update the last sent value and time for the key
+                        self.last_sent_values[key] = {'value': value['value'], 'time': current_time}
 
-            if points_to_send:
-                write_api.write(bucket=self.bucket, org=self.org, record=points_to_send)
-                logging.info("__________________values sent!__________________")
+                if points_to_send:
+                    write_api.write(bucket=self.bucket, org=self.org, record=points_to_send)
+                    logging.info("__________________values sent!__________________")
 
-            await asyncio.sleep(self.loop_sleep)
+                await asyncio.sleep(self.loop_sleep)
 
+            except Exception as e:
+                logging.error(f"Error occurred: {e}")
 
 if __name__ == "__main__":
     config = configparser.ConfigParser()
