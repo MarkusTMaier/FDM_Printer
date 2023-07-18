@@ -11,22 +11,24 @@ from opcuaclient import get_values
 logging.basicConfig(level=logging.INFO)
 
 
-class DataCollector:
-    def __init__(self, config):
+class DataCollectorAndSender:
+    def __init__(self, config_file_path):
+        config = configparser.ConfigParser()
+        config.read(config_file_path)
         self.config = config
 
-        self.url = config.get('influxDb', 'url', fallback='')
-        self.token = config.get('influxDb', 'token', fallback='')
-        self.org = config.get('influxDb', 'org', fallback='')
-        self.bucket = config.get('influxDb', 'bucketName', fallback='')
-        self.printer_id = config.get('Printer', 'id', fallback='')
+        self.influx_url = config.get('influxDb', 'url')
+        self.influx_token = config.get('influxDb', 'token')
+        self.influx_org = config.get('influxDb', 'org')
+        self.influx_bucket = config.get('influxDb', 'bucketName')
+        self.printer_id = config.get('Printer', 'id')
 
-        self.max_retries = config.getint('Settings', 'max_retries', fallback=5)
-        self.retry_delay = config.getint('Settings', 'retry_delay', fallback=2)
-        self.send_interval = config.getfloat('Settings', 'send_interval', fallback=180)
-        self.loop_sleep = config.getfloat('Settings', 'loop_sleep', fallback=0.1)
+        self.max_retries = config.getint('SendDataSettings', 'max_retries')
+        self.retry_delay = config.getint('SendDataSettings', 'retry_delay')
+        self.min_send_interval = config.getfloat('SendDataSettings', 'min_send_interval')
+        self.loop_sleep = config.getfloat('SendDataSettings', 'loop_sleep')
 
-        self.ranges = [
+        self.value_ranges = [
             range(6001, 6013),
             range(6015, 6033),
             range(6034, 6041),
@@ -36,7 +38,12 @@ class DataCollector:
 
         self.last_sent_values = {}
 
-    async def _fetch_values(self):
+        # Set up InfluxDB client
+        self.write_client = influxdb_client.InfluxDBClient(url=self.influx_url, token=self.influx_token, org=self.influx_org)
+        # Define the write api
+        self.write_api = self.write_client.write_api(write_options=SYNCHRONOUS)
+
+    async def _fetch_from_opcua(self):
         for attempt in range(self.max_retries):
             try:
                 return await get_values()
@@ -47,31 +54,27 @@ class DataCollector:
             logging.error(f"Could not establish connection after {self.max_retries} attempts.")
             return None
 
-    def _prepare_data_dict(self, values):
+    def _format_data_dict(self, values):
         return {
             f"value{i}": {
                 "printer_id": self.printer_id,
                 "unit": "nounit",
                 "value": values.get(f"value{i}"),
             }
-            for r in self.ranges for i in r
+            for r in self.value_ranges for i in r
         }
 
     async def main(self):
-        # Set up InfluxDB client
-        write_client = influxdb_client.InfluxDBClient(url=self.url, token=self.token, org=self.org)
-        # Define the write api
-        write_api = write_client.write_api(write_options=SYNCHRONOUS)
 
         while True:
             try:
-                logging.info("______________prepare values to send____________")
+                logging.info("Prepare values to send to InfluxDB")
 
-                values = await self._fetch_values()
+                values = await self._fetch_from_opcua()
                 if values is None:
                     continue
 
-                data = self._prepare_data_dict(values)
+                data = self._format_data_dict(values)
 
                 # Get current time
                 current_time = time.time()
@@ -85,14 +88,14 @@ class DataCollector:
 
                     # Check if data has changed or 3 minutes have passed
                     if last_sent_value != value[
-                        'value'] or last_sent_time is None or current_time - last_sent_time >= self.send_interval:
+                        'value'] or last_sent_time is None or current_time - last_sent_time >= self.min_send_interval:
                         points_to_send.append(
                             Point(key).tag("printer_id", value["printer_id"]).field(value["unit"], value["value"]))
                         # Update the last sent value and time for the key
                         self.last_sent_values[key] = {'value': value['value'], 'time': current_time}
 
                 if points_to_send:
-                    write_api.write(bucket=self.bucket, org=self.org, record=points_to_send)
+                    self.write_api.write(bucket=self.influx_bucket, org=self.influx_org, record=points_to_send)
                     logging.info("__________________values sent!__________________")
 
                 await asyncio.sleep(self.loop_sleep)
@@ -101,8 +104,6 @@ class DataCollector:
                 logging.error(f"Error occurred: {e}")
 
 if __name__ == "__main__":
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-
-    collector = DataCollector(config)
+    config_file_path = 'config.ini'
+    collector = DataCollectorAndSender(config_file_path)
     asyncio.run(collector.main())
