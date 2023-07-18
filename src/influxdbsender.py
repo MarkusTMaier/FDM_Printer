@@ -3,95 +3,103 @@ import influxdb_client
 import configparser
 import logging
 import time
-
 from influxdb_client import Point
 from influxdb_client.client.write_api import SYNCHRONOUS
 from opcuaclient import get_values
 
-config = configparser.ConfigParser()
-config.read('config.ini')
+# Set up logging
+logging.basicConfig(level=logging.INFO)
 
-url = config.get('influxDb', 'url')
-token = config.get('influxDb', 'token')
-org = config.get('influxDb', 'org')
-bucket = config.get('influxDb', 'bucketName')
-printer_id = config.get('Printer', 'id')
 
-MAX_RETRIES = 5
-RANGES = [
-    range(6001, 6013),
-    range(6015, 6033),
-    range(6034, 6041),
-    range(6042, 6049),
-    range(6052, 6172),
-]
+class DataCollector:
+    def __init__(self, config):
+        self.config = config
 
-# Dictionary to store the last sent value and time for each key
-last_sent_values = {}
+        self.url = config.get('influxDb', 'url', fallback='')
+        self.token = config.get('influxDb', 'token', fallback='')
+        self.org = config.get('influxDb', 'org', fallback='')
+        self.bucket = config.get('influxDb', 'bucketName', fallback='')
+        self.printer_id = config.get('Printer', 'id', fallback='')
 
-async def fetch_values():
-    for attempt in range(MAX_RETRIES):
-        try:
-            return await get_values()
-        except asyncio.exceptions.TimeoutError:
-            print(f"Connection attempt {attempt + 1} failed. Retrying...")
-            await asyncio.sleep(2)
-    else:
-        logging.error(f"Could not establish connection after {MAX_RETRIES} attempts.")
-        return None
+        self.max_retries = config.getint('Settings', 'max_retries', fallback=5)
+        self.retry_delay = config.getint('Settings', 'retry_delay', fallback=2)
+        self.send_interval = config.getfloat('Settings', 'send_interval', fallback=180)
+        self.loop_sleep = config.getfloat('Settings', 'loop_sleep', fallback=0.1)
 
-def prepare_data_dict(values):
-    data = {}
-    for r in RANGES:
-        for i in r:
-            key = f"value{i}"
-            data[key] = {
-                "printer_id": printer_id,
-                "unit": "nounit",  # to do right
-                "value": values.get(key),
+        self.ranges = [
+            range(6001, 6013),
+            range(6015, 6033),
+            range(6034, 6041),
+            range(6042, 6049),
+            range(6052, 6172),
+        ]
+
+        self.last_sent_values = {}
+
+    async def fetch_values(self):
+        for attempt in range(self.max_retries):
+            try:
+                return await get_values()
+            except asyncio.exceptions.TimeoutError:
+                logging.warning(f"Connection attempt {attempt + 1} failed. Retrying...")
+                await asyncio.sleep(self.retry_delay)
+        else:
+            logging.error(f"Could not establish connection after {self.max_retries} attempts.")
+            return None
+
+    def prepare_data_dict(self, values):
+        return {
+            f"value{i}": {
+                "printer_id": self.printer_id,
+                "unit": "nounit",
+                "value": values.get(f"value{i}"),
             }
+            for r in self.ranges for i in r
+        }
 
-    return data
+    async def main(self):
+        # Set up InfluxDB client
+        write_client = influxdb_client.InfluxDBClient(url=self.url, token=self.token, org=self.org)
+        # Define the write api
+        write_api = write_client.write_api(write_options=SYNCHRONOUS)
 
-async def main():
-    global last_sent_values
+        while True:
+            logging.info("______________prepare values to send____________")
 
-    # Set up InfluxDB client
-    write_client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
-    # Define the write api
-    write_api = write_client.write_api(write_options=SYNCHRONOUS)
+            values = await self.fetch_values()
+            if values is None:
+                continue
 
-    while True:
-        print("______________prepare values to send____________")
+            data = self.prepare_data_dict(values)
 
-        values = await fetch_values()
-        if values is None:  # if the connection could not be established, try again
-            continue
+            # Get current time
+            current_time = time.time()
 
-        data = prepare_data_dict(values)
+            points_to_send = []
 
-        # Get current time
-        current_time = time.time()
+            for key, value in data.items():
+                last_sent = self.last_sent_values.get(key, {})
+                last_sent_value = last_sent.get('value')
+                last_sent_time = last_sent.get('time')
 
-        # Create a variable to store the points to send
-        points_to_send = []
+                # Check if data has changed or 3 minutes have passed
+                if last_sent_value != value[
+                    'value'] or last_sent_time is None or current_time - last_sent_time >= self.send_interval:
+                    points_to_send.append(
+                        Point(key).tag("printer_id", value["printer_id"]).field(value["unit"], value["value"]))
+                    # Update the last sent value and time for the key
+                    self.last_sent_values[key] = {'value': value['value'], 'time': current_time}
 
-        for key, value in data.items():
-            last_sent = last_sent_values.get(key, {})
-            last_sent_value = last_sent.get('value')
-            last_sent_time = last_sent.get('time')
+            if points_to_send:
+                write_api.write(bucket=self.bucket, org=self.org, record=points_to_send)
+                logging.info("__________________values sent!__________________")
 
-            # Check if data has changed or 3 minutes have passed
-            if last_sent_value != value['value'] or last_sent_time is None or current_time - last_sent_time >= 180:
-                points_to_send.append(Point(key).tag("printer_id", value["printer_id"]).field(value["unit"], value["value"]))
-                # Update the last sent value and time for the key
-                last_sent_values[key] = {'value': value['value'], 'time': current_time}
+            await asyncio.sleep(self.loop_sleep)
 
-        if points_to_send:
-            write_api.write(bucket=bucket, org=org, record=points_to_send)
-            print("__________________values sent!__________________")
-
-        await asyncio.sleep(0.1)
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+
+    collector = DataCollector(config)
+    asyncio.run(collector.main())
