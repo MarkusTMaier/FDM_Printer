@@ -409,6 +409,8 @@ async def variableupdater(server):
         for node in nodesToUpdate:
             if node.nodeid.Identifier in node_values:
                 value, variant_type = node_values[node.nodeid.Identifier]
+                if value is None and variant_type == ua.VariantType.Double:
+                    value = 0.0
                 val = ua.Variant(Value=value, VariantType=variant_type)
                 await node.write_value(val)
             else:
