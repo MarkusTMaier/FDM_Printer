@@ -40,8 +40,7 @@ def get_filament_info(job_info, attribute):
 def get_values():
     c = make_client()
     var = {}
-    print(
-        '_______________________Start collecting values in octoprintbroker.py______________________________________')
+    print('_______________________Start collecting values in octoprintbroker.py______________________________________')
     ### VERSION INFORMATION ###
     var['serverVersion'], var['apiVersion'], var['textVersion'] = get_version_info(c)
     var['probeAppKeysWorkflowSupport'] = c.probe_app_keys_workflow_support()
@@ -50,20 +49,20 @@ def get_values():
         var['connectionPrinterProfile'], var['connectionState'] = get_connection_info(c)
 
     printer_profiles = c.connection_info()['options']['printerProfiles']
-    var.update({
-                   f'printerProfileId{i}': profile['id'],
-                   f'printerProfileName{i}': profile['name']
-               for i, profile in enumerate(printer_profiles)
-    })
+    for i, profile in enumerate(printer_profiles):
+        var.update({
+            f'printerProfileId{i}': profile['id'],
+            f'printerProfileName{i}': profile['name']
+        })
 
     ### FILE OPERATIONS ###
     files = c.files()['files']
-    var.update({
-                   f'fileName{i}': file['name'],
-                   f'fileSize{i}': file['size'],
-                   f'fileType{i}': file['type']
-               for i, file in enumerate(files)
-    })
+    for i, file in enumerate(files):
+        var.update({
+            f'fileName{i}': file['name'],
+            f'fileSize{i}': file['size'],
+            f'fileType{i}': file['type']
+        })
 
 
     ### JOB OPERATIONS ###
