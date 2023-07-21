@@ -145,7 +145,7 @@ def get_values():
     var['printerProfileExtruderCount'] = extruder['count']
     var['printerProfileExtruderDefaultExtrusionLength'] = extruder['defaultExtrusionLength']
     var['printerProfileExtruderNozzleDiameter'] = extruder['nozzleDiameter']
-    var['printerProfileExtruderOffsetX'], var['var.printerProfileExtruderOffsetY'] = extruder['offsets'][0]
+    var['printerProfileExtruderOffsetX'], var['printerProfileExtruderOffsetY'] = extruder['offsets'][0]
     var['printerProfileExtruderSharedNozzle'] = extruder['sharedNozzle']
 
     var['printerProfileHeatedBed'] = profile['heatedBed']
