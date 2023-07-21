@@ -27,7 +27,7 @@ def get_connection_info(c):
            connection_info['printerProfile'], connection_info['state']
 def get_printer_profile_info(c, profileVisualized):
     profile = c.printer_profile(profileVisualized)
-    return profile['axes'], profile['extruder'], profile['volume'], volume.get('custom_box', {})
+    return profile['axes'], profile['extruder'], profile['volume'], profile['volume'].get('custom_box', {})
 
 def get_filament_info(job_info, attribute):
     try:
