@@ -27,7 +27,7 @@ def get_connection_info(c):
            connection_info['printerProfile'], connection_info['state']
 def get_printer_profile_info(c, profileVisualized):
     profile = c.printer_profile(profileVisualized)
-    return profile['axes'], profile['extruder'], profile['volume'], profile['volume'].get('custom_box', {})
+    return profile, profile['axes'], profile['extruder'], profile['volume'], profile['volume'].get('custom_box', {})
 
 def get_filament_info(job_info, attribute):
     try:
@@ -127,7 +127,7 @@ def get_values():
 
     ### PRINTER PROFILE OPERATIONS ###
     profileVisualized = '_default'
-    axes, extruder, volume, custom_box = get_printer_profile_info(c, profileVisualized)
+    profile, axes, extruder, volume, custom_box = get_printer_profile_info(c, profileVisualized)
 
     var['printerProfileAxeEInverted'] = axes['e']['inverted']
     var['printerProfileAxeESpeed'] = axes['e']['speed']
