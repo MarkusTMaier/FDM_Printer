@@ -157,7 +157,6 @@ async def variableupdater(server):
             6003: (config.get('opcUa', 'serialNumber'), ua.VariantType.String),
             6004: (int(config.get('hardcoded', 'operationMode')), ua.VariantType.UInt16),
             6005: (str(values['jobFileName']), ua.VariantType.String),
-            6006: (values['numberInList'], ua.VariantType.UInt16),
             6007: (ua.LocalizedText(Text=values['currentStateProduction'], Locale="en"), ua.VariantType.LocalizedText),
             6011: (ua.LocalizedText(Text=str(values['currentStateMonitoring']), Locale="en"), ua.VariantType.LocalizedText),
             6015: (str(values['fileName1']), ua.VariantType.String),
