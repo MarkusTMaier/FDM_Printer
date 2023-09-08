@@ -150,10 +150,13 @@ async def variableupdater(server):
         PowerOnDuration = (time.time() - program_start_time) / 3600
         
         CurrentProductionState = values['currentStateMonitoring']
+        valueNodeID = 138
         if CurrentProductionState == 'NotExecuting':
             CurrentProductionState = 'Ended'
+            valueNodeID = 140
         if CurrentProductionState == 'Executing':
             CurrentProductionState = 'Running'
+            valueNodeID = 138
         # Update the value of the manufacturer node
         node_values = {
             6001: (
@@ -163,6 +166,7 @@ async def variableupdater(server):
             6004: (int(config.get('hardcoded', 'operationMode')), ua.VariantType.UInt16),
             6005: (str(values['jobFileName']), ua.VariantType.String),
             6007: (ua.LocalizedText(Text=str(CurrentProductionState), Locale="en"), ua.VariantType.LocalizedText),
+            6008: (ua.NodeId(valueNodeID,5),ua.VariantType.NodeId),
             6011: (int(PowerOnDuration), ua.VariantType.UInt32),
             6013: (int(2022), ua.VariantType.UInt16),
             6014: ('1.1', ua.VariantType.String),
