@@ -22,7 +22,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="XuacsTAE/yF8/aUlkbQoZg==" Version="1.6.10"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="F5Ao95lWCRqQyMMomGuCeQ==" Version="1.6.10"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5003" BrowseName="1:FDM_Printer">
@@ -31,14 +31,11 @@
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=13</Reference>
             <Reference ReferenceType="HasAddIn">ns=1;i=5012</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5004</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=3;i=1001</Reference>
             <Reference ReferenceType="HasAddIn">ns=1;i=5005</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5006</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5008</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5009</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=3;i=1001</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=3;i=1001</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=3;i=1001</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=3;i=1001</Reference>
         </References>
     </UAObject>
     <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5012" BrowseName="3:Components">
@@ -48,28 +45,25 @@
             <Reference ReferenceType="Organizes">ns=1;i=5019</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=5022</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=5025</Reference>
+            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5003</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=5015</Reference>
-            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
     <UAObject NodeId="ns=1;i=5019" BrowseName="1:AxisX">
         <DisplayName>AxisX</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6090</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6085</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6084</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6069</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="Double" NodeId="ns=1;i=6090" BrowseName="1:Length" AccessLevel="3">
         <DisplayName>Length</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
         </References>
     </UAVariable>
@@ -78,14 +72,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6084" BrowseName="1:Min" AccessLevel="3">
         <DisplayName>Min</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
         </References>
     </UAVariable>
@@ -94,26 +86,23 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5019</Reference>
         </References>
     </UAVariable>
     <UAObject NodeId="ns=1;i=5022" BrowseName="1:AxisY">
         <DisplayName>AxisY</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6091</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6086</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6087</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6070</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="Double" NodeId="ns=1;i=6091" BrowseName="1:Length" AccessLevel="3">
         <DisplayName>Length</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5022</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5022</Reference>
         </References>
     </UAVariable>
@@ -122,14 +111,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5022</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5022</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6087" BrowseName="1:Min" AccessLevel="3">
         <DisplayName>Min</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5022</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5022</Reference>
         </References>
     </UAVariable>
@@ -138,26 +125,23 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5022</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5022</Reference>
         </References>
     </UAVariable>
     <UAObject NodeId="ns=1;i=5025" BrowseName="1:AxisZ">
         <DisplayName>AxisZ</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6092</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6088</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6089</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6071</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="Double" NodeId="ns=1;i=6092" BrowseName="1:Length" AccessLevel="3">
         <DisplayName>Length</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5025</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5025</Reference>
         </References>
     </UAVariable>
@@ -166,14 +150,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5025</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5025</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6089" BrowseName="1:Min" AccessLevel="3">
         <DisplayName>Min</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5025</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5025</Reference>
         </References>
     </UAVariable>
@@ -182,7 +164,6 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5025</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5025</Reference>
         </References>
     </UAVariable>
     <UAObject NodeId="ns=1;i=5015" BrowseName="1:Extruder">
@@ -190,19 +171,17 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6074</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6077</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6080</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6083</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6068</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5012</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="Double" NodeId="ns=1;i=6074" BrowseName="1:DefaultExtrusionLength" AccessLevel="3">
         <DisplayName>DefaultExtrusionLength</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAVariable>
@@ -211,14 +190,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6080" BrowseName="1:NozzleOffsetX" AccessLevel="3">
         <DisplayName>NozzleOffsetX</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAVariable>
@@ -227,7 +204,6 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6068" BrowseName="1:Speed" AccessLevel="3">
@@ -235,17 +211,15 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5015</Reference>
         </References>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5004" BrowseName="2:Equipment">
         <DisplayName>Equipment</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=12</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5013</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
     <UAObject NodeId="ns=1;i=5028" BrowseName="1:Spools">
@@ -263,7 +237,6 @@
             <Reference ReferenceType="Organizes">ns=1;i=6045</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6053</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="String" NodeId="ns=1;i=6106" BrowseName="1:Spool0" AccessLevel="3">
@@ -274,12 +247,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6108</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6109</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6110</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6111</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6112</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6113</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6114</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -290,14 +262,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6108" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
         </References>
     </UAVariable>
@@ -306,14 +276,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6110" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
         </References>
     </UAVariable>
@@ -322,14 +290,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6112" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
         </References>
     </UAVariable>
@@ -338,14 +304,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6114" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6106</Reference>
         </References>
     </UAVariable>
@@ -357,12 +321,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6056</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6057</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6059</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6060</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6062</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6063</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6065</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -373,14 +336,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6056" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
         </References>
     </UAVariable>
@@ -389,14 +350,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6059" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
         </References>
     </UAVariable>
@@ -405,14 +364,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6062" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
         </References>
     </UAVariable>
@@ -421,14 +378,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6065" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6117</Reference>
         </References>
     </UAVariable>
@@ -440,12 +395,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6072</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6073</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6075</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6076</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6078</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6079</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6081</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -456,14 +410,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6072" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
         </References>
     </UAVariable>
@@ -472,14 +424,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6075" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
         </References>
     </UAVariable>
@@ -488,14 +438,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6078" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
         </References>
     </UAVariable>
@@ -504,14 +452,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6081" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6120</Reference>
         </References>
     </UAVariable>
@@ -523,12 +469,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6093</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6094</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6104</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6105</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6115</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6116</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6118</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -539,14 +484,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6093" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
         </References>
     </UAVariable>
@@ -555,14 +498,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6104" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
         </References>
     </UAVariable>
@@ -571,14 +512,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6115" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
         </References>
     </UAVariable>
@@ -587,14 +526,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6118" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6123</Reference>
         </References>
     </UAVariable>
@@ -606,12 +543,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6121</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6122</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6124</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6125</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6127</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6128</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6130</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -622,14 +558,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6121" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
         </References>
     </UAVariable>
@@ -638,14 +572,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6124" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
         </References>
     </UAVariable>
@@ -654,14 +586,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6127" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
         </References>
     </UAVariable>
@@ -670,14 +600,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6130" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6126</Reference>
         </References>
     </UAVariable>
@@ -689,12 +617,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6133</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6134</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6135</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6136</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6137</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6138</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6139</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -705,14 +632,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6133" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
         </References>
     </UAVariable>
@@ -721,14 +646,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6135" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
         </References>
     </UAVariable>
@@ -737,14 +660,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6137" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
         </References>
     </UAVariable>
@@ -753,14 +674,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6139" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6129</Reference>
         </References>
     </UAVariable>
@@ -772,12 +691,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6141</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6142</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6143</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6144</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6160</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6161</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6162</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -788,14 +706,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6141" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
@@ -804,14 +720,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6143" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
@@ -820,14 +734,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6160" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
@@ -836,14 +748,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6162" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6132</Reference>
         </References>
     </UAVariable>
@@ -855,12 +765,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6146</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6147</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6148</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6149</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6163</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6164</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6165</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -871,14 +780,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6146" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
         </References>
     </UAVariable>
@@ -887,14 +794,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6148" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
         </References>
     </UAVariable>
@@ -903,14 +808,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6163" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
         </References>
     </UAVariable>
@@ -919,14 +822,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6165" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6026</Reference>
         </References>
     </UAVariable>
@@ -938,12 +839,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6151</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6152</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6153</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6154</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6166</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6167</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6168</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -954,14 +854,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6151" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
         </References>
     </UAVariable>
@@ -970,14 +868,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6153" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
         </References>
     </UAVariable>
@@ -986,14 +882,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6166" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
         </References>
     </UAVariable>
@@ -1002,14 +896,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6168" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6045</Reference>
         </References>
     </UAVariable>
@@ -1021,12 +913,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6156</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6157</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6158</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6159</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6169</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6170</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6171</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5028</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1037,14 +928,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6156" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
         </References>
     </UAVariable>
@@ -1053,14 +942,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6158" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
         </References>
     </UAVariable>
@@ -1069,14 +956,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6169" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
         </References>
     </UAVariable>
@@ -1085,14 +970,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6171" BrowseName="1:Weight" AccessLevel="3">
         <DisplayName>Weight</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6053</Reference>
         </References>
     </UAVariable>
@@ -1102,14 +985,12 @@
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=44</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6010</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5004</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=5013" NodeId="ns=1;i=6010" BrowseName="NodeVersion">
         <DisplayName>NodeVersion</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5013</Reference>
         </References>
     </UAVariable>
@@ -1118,31 +999,27 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=11</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6033</Reference>
+            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5003</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6041</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6001</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6049</Reference>
-            <Reference ReferenceType="HasProperty">ns=1;i=6050</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6002</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6003</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6014</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6013</Reference>
-            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
-    <UAVariable DataType="String" NodeId="ns=1;i=6033" BrowseName="4:DeviceClass" AccessLevel="3">
+    <UAVariable DataType="String" NodeId="ns=1;i=6033" BrowseName="1:DeviceClass" AccessLevel="3">
         <DisplayName>DeviceClass</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="String" NodeId="ns=1;i=6041" BrowseName="3:Location" AccessLevel="3">
+    <UAVariable DataType="String" NodeId="ns=1;i=6041" BrowseName="1:Location" AccessLevel="3">
         <DisplayName>Location</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
@@ -1151,22 +1028,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="LocalizedText" NodeId="ns=1;i=6049" BrowseName="4:Model" AccessLevel="3">
+    <UAVariable DataType="LocalizedText" NodeId="ns=1;i=6049" BrowseName="1:Model" AccessLevel="3">
         <DisplayName>Model</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
-        </References>
-    </UAVariable>
-    <UAVariable DataType="String" NodeId="ns=1;i=6050" BrowseName="4:ProductCode" AccessLevel="3">
-        <DisplayName>ProductCode</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
@@ -1175,7 +1042,6 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" ParentNodeId="ns=1;i=5005" NodeId="ns=1;i=6003" BrowseName="4:SerialNumber">
@@ -1183,22 +1049,19 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="String" NodeId="ns=1;i=6014" BrowseName="4:SoftwareRevision" AccessLevel="3">
+    <UAVariable DataType="String" NodeId="ns=1;i=6014" BrowseName="1:SoftwareRevision" AccessLevel="3">
         <DisplayName>SoftwareRevision</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt16" NodeId="ns=1;i=6013" BrowseName="3:YearOfConstruction" AccessLevel="3">
+    <UAVariable DataType="UInt16" NodeId="ns=1;i=6013" BrowseName="1:YearOfConstruction" AccessLevel="3">
         <DisplayName>YearOfConstruction</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5005</Reference>
         </References>
     </UAVariable>
@@ -1207,37 +1070,50 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=14</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5007</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6095</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
     <UAObject ParentNodeId="ns=1;i=5006" NodeId="ns=1;i=5007" BrowseName="2:MachineTool">
         <DisplayName>MachineTool</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=26</Reference>
+            <Reference ReferenceType="HasAddIn">ns=1;i=5014</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5006</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6004</Reference>
-            <Reference ReferenceType="Organizes">ns=1;i=6011</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6022</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6046</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6034</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5006</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5006</Reference>
         </References>
     </UAObject>
+    <UAObject ParentNodeId="ns=1;i=5007" NodeId="ns=1;i=5014" BrowseName="3:MachineryOperationMode">
+        <DisplayName>MachineryOperationMode</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">ns=2;i=1003</Reference>
+            <Reference ReferenceType="HasComponent">ns=1;i=6011</Reference>
+            <Reference ReferenceType="HasAddIn" IsForward="false">ns=1;i=5007</Reference>
+        </References>
+    </UAObject>
+    <UAVariable DataType="LocalizedText" ParentNodeId="ns=1;i=5014" NodeId="ns=1;i=6011" BrowseName="CurrentState">
+        <DisplayName>CurrentState</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=2760</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5014</Reference>
+            <Reference ReferenceType="HasProperty">ns=1;i=6012</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable DataType="NodeId" ParentNodeId="ns=1;i=6011" NodeId="ns=1;i=6012" BrowseName="Id">
+        <DisplayName>Id</DisplayName>
+        <References>
+            <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6011</Reference>
+        </References>
+    </UAVariable>
     <UAVariable DataType="MachineOperationMode" ParentNodeId="ns=1;i=5007" NodeId="ns=1;i=6004" BrowseName="2:OperationMode">
         <DisplayName>OperationMode</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5007</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5007</Reference>
-        </References>
-    </UAVariable>
-    <UAVariable DataType="UInt32" NodeId="ns=1;i=6011" BrowseName="1:PowerOnDuration" AccessLevel="3">
-        <DisplayName>PowerOnDuration</DisplayName>
-        <References>
-            <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6022" BrowseName="1:TemperatureAmbient" AccessLevel="3">
@@ -1246,7 +1122,6 @@
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6061</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6052</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
         </References>
         <Value>
@@ -1258,7 +1133,6 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6022</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6022</Reference>
         </References>
         <Value>
             <uax:Double>0</uax:Double>
@@ -1268,7 +1142,6 @@
         <DisplayName>Target</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6022</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6022</Reference>
         </References>
         <Value>
@@ -1282,7 +1155,6 @@
             <Reference ReferenceType="Organizes">ns=1;i=6064</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6055</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
         </References>
         <Value>
             <uax:Double>0</uax:Double>
@@ -1293,7 +1165,6 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6046</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6046</Reference>
         </References>
         <Value>
             <uax:Double>0</uax:Double>
@@ -1303,7 +1174,6 @@
         <DisplayName>Target</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6046</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6046</Reference>
         </References>
         <Value>
@@ -1317,7 +1187,6 @@
             <Reference ReferenceType="Organizes">ns=1;i=6067</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6058</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
         </References>
         <Value>
             <uax:Double>0</uax:Double>
@@ -1328,7 +1197,6 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6034</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6034</Reference>
         </References>
         <Value>
             <uax:Double>0</uax:Double>
@@ -1338,7 +1206,6 @@
         <DisplayName>Target</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6034</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6034</Reference>
         </References>
         <Value>
@@ -1353,12 +1220,11 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6097</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6098</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6099</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6101</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6102</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6100</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6103</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1369,14 +1235,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6097" BrowseName="1:Density" AccessLevel="3">
         <DisplayName>Density</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
         </References>
     </UAVariable>
@@ -1385,14 +1249,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6099" BrowseName="1:Material" AccessLevel="3">
         <DisplayName>Material</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
         </References>
     </UAVariable>
@@ -1401,14 +1263,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6102" BrowseName="1:Used" AccessLevel="3">
         <DisplayName>Used</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
         </References>
     </UAVariable>
@@ -1417,7 +1277,6 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6103" BrowseName="1:Weight" AccessLevel="3">
@@ -1425,14 +1284,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=6095</Reference>
         </References>
     </UAVariable>
     <UAObject ParentNodeId="ns=1;i=5003" NodeId="ns=1;i=5008" BrowseName="2:Notification">
         <DisplayName>Notification</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=7</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
@@ -1443,28 +1300,25 @@
             <Reference ReferenceType="HasComponent">ns=1;i=5010</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5003</Reference>
         </References>
     </UAObject>
     <UAObject ParentNodeId="ns=1;i=5009" NodeId="ns=1;i=5010" BrowseName="2:ActiveProgram">
         <DisplayName>ActiveProgram</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=32</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6030</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6037</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6025</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6005</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6006</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=5011</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="Double" NodeId="ns=1;i=6030" BrowseName="1:EstimatedFilamentLength" AccessLevel="3">
         <DisplayName>EstimatedFilamentLength</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
@@ -1473,14 +1327,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6025" BrowseName="1:EstimatedPrintTime" AccessLevel="3">
         <DisplayName>EstimatedPrintTime</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
@@ -1489,14 +1341,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5010</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="UInt16" ParentNodeId="ns=1;i=5010" NodeId="ns=1;i=6006" BrowseName="NumberInList">
         <DisplayName>NumberInList</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5010</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAVariable>
@@ -1508,17 +1358,15 @@
             <Reference ReferenceType="HasComponent">ns=1;i=6038</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6042</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5010</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="LocalizedText" ParentNodeId="ns=1;i=5011" NodeId="ns=1;i=6007" BrowseName="CurrentState">
         <DisplayName>CurrentState</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=2760</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5011</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6008</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6009</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5011</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5011</Reference>
         </References>
         <Value>
             <uax:LocalizedText/>
@@ -1529,7 +1377,6 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6007</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6007</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="UInt32" ParentNodeId="ns=1;i=6007" NodeId="ns=1;i=6009" BrowseName="Number">
@@ -1537,14 +1384,12 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6007</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6007</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6038" BrowseName="1:Error" AccessLevel="3">
         <DisplayName>Error</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5011</Reference>
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5011</Reference>
         </References>
         <Value>
@@ -1558,7 +1403,6 @@
             <Reference ReferenceType="Organizes">ns=1;i=6021</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6029</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5011</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5011</Reference>
         </References>
         <Value>
             <uax:Double>0</uax:Double>
@@ -1568,7 +1412,6 @@
         <DisplayName>PrintTime</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6042</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6042</Reference>
         </References>
         <Value>
@@ -1580,7 +1423,6 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6042</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=6042</Reference>
         </References>
         <Value>
             <uax:Double>0</uax:Double>
@@ -1590,6 +1432,7 @@
         <DisplayName>AvailablePrograms</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=58</Reference>
+            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6023</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6015</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6019</Reference>
@@ -1600,17 +1443,14 @@
             <Reference ReferenceType="Organizes">ns=1;i=6043</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6047</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6017</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
-            <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5009</Reference>
         </References>
     </UAObject>
     <UAVariable DataType="String" NodeId="ns=1;i=6023" BrowseName="1:File0" AccessLevel="3">
         <DisplayName>File0</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6024</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1621,16 +1461,14 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6023</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6023</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6015" BrowseName="1:File1" AccessLevel="3">
         <DisplayName>File1</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6016</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1641,16 +1479,14 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6015</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6015</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6019" BrowseName="1:File2" AccessLevel="3">
         <DisplayName>File2</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6020</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1661,16 +1497,14 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6019</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6019</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6027" BrowseName="1:File3" AccessLevel="3">
         <DisplayName>File3</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6028</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1681,16 +1515,14 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6027</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6027</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6031" BrowseName="1:File4" AccessLevel="3">
         <DisplayName>File4</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6032</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1701,16 +1533,14 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6031</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6031</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6035" BrowseName="1:File5" AccessLevel="3">
         <DisplayName>File5</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6036</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1721,16 +1551,14 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6035</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6035</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6039" BrowseName="1:File6" AccessLevel="3">
         <DisplayName>File6</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6040</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1741,16 +1569,14 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6039</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6039</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6043" BrowseName="1:File7" AccessLevel="3">
         <DisplayName>File7</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6044</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1761,16 +1587,14 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6043</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6043</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6047" BrowseName="1:File8" AccessLevel="3">
         <DisplayName>File8</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6048</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1781,16 +1605,14 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6047</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6047</Reference>
         </References>
     </UAVariable>
     <UAVariable DataType="String" NodeId="ns=1;i=6017" BrowseName="1:File9" AccessLevel="3">
         <DisplayName>File9</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
             <Reference ReferenceType="HasProperty">ns=1;i=6018</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
-            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5017</Reference>
         </References>
         <Value>
             <uax:String></uax:String>
@@ -1800,7 +1622,6 @@
         <DisplayName>FileType</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-            <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6017</Reference>
             <Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=6017</Reference>
         </References>
     </UAVariable>

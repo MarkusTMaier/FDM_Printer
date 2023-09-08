@@ -21,6 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 build_date = datetime(2023, 4, 2, 10, 00)
 time_value = None
+program_start_time = time.time()
 
 
 async def main():
@@ -69,9 +70,6 @@ async def main():
     xml_files_and_namespaces = [
         ("Opc.Ua.Di.NodeSet2.xml", "http://opcfoundation.org/UA/DI/"),
         ("Opc.Ua.Machinery.NodeSet2.xml", "http://opcfoundation.org/UA/Machinery/"),
-        ("Opc.Ua.SurfaceTechnology.NodeSet2.xml", "http://opcfoundation.org/UA/SurfaceTechnology/"),
-        ("Opc.Ua.Ijt.Tightening.NodeSet2.xml", "http://opcfoundation.org/UA/IJT/"),
-        ("Opc.Ua.Robotics.NodeSet2.xml", "http://opcfoundation.org/UA/Robotics/"),
         ("Opc.Ua.IA.NodeSet2.xml", "http://opcfoundation.org/UA/IA/"),
         ("Opc.Ua.MachineTool.Nodeset2.xml", "http://opcfoundation.org/UA/MachineTool/"),
     ]
@@ -85,7 +83,7 @@ async def main():
         index = await import_xml_file(server, BASE_DIR, file, namespace)
         indices.append(index)
 
-    di_idx, ma_idx, st_idx, ijt_idx, rob_idx, ia_idx, mt_idx = indices
+    di_idx, ma_idx, st_idx, ijt_idx = indices
 
     ##################################################################################################################
     print(f"Import done! {time.time() - time_value}s")
@@ -125,10 +123,10 @@ async def variableupdater(server):
     nsindex = await server.get_namespace_index(database_uri)
     # prepare a list of variables to be updated
     node_ids = [
-        6001, 6002, 6003, 6004, 6005, 6006, 6007, 6008, 6009, 6010, 6011, 6012,
+        6001, 6002, 6003, 6004, 6005, 6006, 6007, 6008, 6009, 6010, 6011, 6012, 6013, 6014,
         6015, 6016, 6017, 6018, 6019, 6020, 6021, 6022, 6023, 6024, 6025, 6026,
-        6027, 6028, 6029, 6030, 6031, 6032, 6034, 6035, 6036, 6037, 6038, 6039,
-        6040, 6042, 6043, 6044, 6045, 6046, 6047, 6048, 6052, 6053, 6054, 6055,
+        6027, 6028, 6029, 6030, 6031, 6032, 6033, 6034, 6035, 6036, 6037, 6038, 6039,
+        6040, 6041, 6042, 6043, 6044, 6045, 6046, 6047, 6048, 6049, 6050, 6052, 6053, 6054, 6055,
         6056, 6057, 6058, 6059, 6060, 6061, 6062, 6063, 6064, 6065, 6066, 6067,
         6068, 6069, 6070, 6071, 6072, 6073, 6074, 6075, 6076, 6077, 6078, 6079,
         6080, 6081, 6082, 6083, 6084, 6085, 6086, 6087, 6088, 6089, 6090, 6091,
@@ -149,6 +147,13 @@ async def variableupdater(server):
     # Loop forever and update the values of the nodes every 2 seconds
     while True:
         values = get_values()
+        PowerOnDuration = (time.time() - program_start_time) / 3600
+        
+        CurrentProductionState = values['currentStateMonitoring']
+        if CurrentProductionState == 'NotExecuting':
+            CurrentProductionState = 'Ended'
+        if CurrentProductionState == 'Executing':
+            CurrentProductionState = 'Running'
         # Update the value of the manufacturer node
         node_values = {
             6001: (
@@ -157,8 +162,10 @@ async def variableupdater(server):
             6003: (config.get('opcUa', 'serialNumber'), ua.VariantType.String),
             6004: (int(config.get('hardcoded', 'operationMode')), ua.VariantType.UInt16),
             6005: (str(values['jobFileName']), ua.VariantType.String),
-            6007: (ua.LocalizedText(Text=values['currentStateProduction'], Locale="en"), ua.VariantType.LocalizedText),
-            6011: (ua.LocalizedText(Text=str(values['currentStateMonitoring']), Locale="en"), ua.VariantType.LocalizedText),
+            6007: (ua.LocalizedText(Text=str(CurrentProductionState), Locale="en"), ua.VariantType.LocalizedText),
+            6011: (int(PowerOnDuration), ua.VariantType.UInt32),
+            6013: (int(2022), ua.VariantType.UInt16),
+            6014: ('1.1', ua.VariantType.String),
             6015: (str(values['fileName1']), ua.VariantType.String),
             6016: (str(values['fileType1']), ua.VariantType.String),
             6017: (str(values['fileName9']), ua.VariantType.String),
@@ -177,6 +184,7 @@ async def variableupdater(server):
             6030: (values['jobFilamentLength'], ua.VariantType.Double),
             6031: (str(values['fileName4']), ua.VariantType.String),
             6032: (str(values['fileType4']), ua.VariantType.String),
+            6033: ('Additive manufacturing machine', ua.VariantType.String),
             6034: (values['currentToolTemperatureActual'], ua.VariantType.Double),
             6035: (str(values['fileName5']), ua.VariantType.String),
             6036: (str(values['fileType5']), ua.VariantType.String),
@@ -184,6 +192,7 @@ async def variableupdater(server):
             6038: (str(values['stateError']), ua.VariantType.String),
             6039: (str(values['fileName6']), ua.VariantType.String),
             6040: (str(values['fileType6']), ua.VariantType.String),
+            6041: ('EMO 9 F24/N 47.3895819 E 8.5134454', ua.VariantType.String),
             6042: (values['progressCompletion'], ua.VariantType.Double),
             6043: (str(values['fileName7']), ua.VariantType.String),
             6044: (str(values['fileType7']), ua.VariantType.String),
@@ -191,6 +200,8 @@ async def variableupdater(server):
             6046: (values['currentBedTemperatureActual'], ua.VariantType.Double),
             6047: (str(values['fileName8']), ua.VariantType.String),
             6048: (str(values['fileType8']), ua.VariantType.String),
+            6049: (ua.LocalizedText(Text='MK3S+', Locale="en"), ua.VariantType.LocalizedText),
+            6050: ('2022-1', ua.VariantType.String),
             6052: (values['temperatureATarget'], ua.VariantType.Double),
             6053: (str(values['spoolName9']), ua.VariantType.String),
             6054: (values['spoolCost1'], ua.VariantType.Double),

@@ -22,7 +22,7 @@
     </Aliases>
     <Extensions>
         <Extension>
-            <ua:ModelInfo Tool="UaModeler" Hash="XuacsTAE/yF8/aUlkbQoZg==" Version="1.6.10"/>
+            <ua:ModelInfo Tool="UaModeler" Hash="XkFYv7TjvEIHsTYNVZLm8A==" Version="1.6.10"/>
         </Extension>
     </Extensions>
     <UAObject NodeId="ns=1;i=5003" BrowseName="1:FDM_Printer">
@@ -1217,7 +1217,7 @@
         <References>
             <Reference ReferenceType="HasTypeDefinition">ns=2;i=26</Reference>
             <Reference ReferenceType="HasComponent">ns=1;i=6004</Reference>
-            <Reference ReferenceType="Organizes">ns=1;i=6011</Reference>
+            <Reference ReferenceType="Organizes">ns=1;i=6172</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6022</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6046</Reference>
             <Reference ReferenceType="Organizes">ns=1;i=6034</Reference>
@@ -1233,12 +1233,16 @@
             <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=5007</Reference>
         </References>
     </UAVariable>
-    <UAVariable DataType="UInt32" NodeId="ns=1;i=6011" BrowseName="1:PowerOnDuration" AccessLevel="3">
+    <UAVariable DataType="UInt32" NodeId="ns=1;i=6172" BrowseName="1:PowerOnDuration" AccessLevel="3">
         <DisplayName>PowerOnDuration</DisplayName>
         <References>
             <Reference ReferenceType="HasTypeDefinition">i=63</Reference>
             <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
+            <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5007</Reference>
         </References>
+        <Value>
+            <uax:UInt32>0</uax:UInt32>
+        </Value>
     </UAVariable>
     <UAVariable DataType="Double" NodeId="ns=1;i=6022" BrowseName="1:TemperatureAmbient" AccessLevel="3">
         <DisplayName>TemperatureAmbient</DisplayName>
