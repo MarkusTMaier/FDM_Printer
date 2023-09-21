@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import time
-from sem6000_bluetooth import SEMSocket
+from sem6000_library import SEMSocket
 import bluepy
 
 
