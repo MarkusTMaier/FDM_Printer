@@ -325,7 +325,7 @@ async def variableupdater(server):
             6168: (values['spoolWeight8'], ua.VariantType.Double),
             6169: (values['spoolUsed9'], ua.VariantType.Double),
             6170: (str(values['spoolProfileVendor9']), ua.VariantType.String),
-            6171: (values['spoolWeight9'], ua.VariantType.Double)
+            6171: (values['spoolWeight9'], ua.VariantType.Double),
             6172: (0)
         }
 
