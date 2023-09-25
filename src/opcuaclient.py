@@ -49,7 +49,7 @@ async def get_values():
                 final_value = value.Text
 
             elif i == 6172:
-                final_value = socket.power
+                final_value = 10 #socket.power
 
             else:
                 final_value = value
