@@ -3,6 +3,7 @@ import asyncio
 import time
 import influxdb_client
 from influxdb_client.client.write_api import SYNCHRONOUS
+from sem6000_controller import socket
 
 
 bucket = "FDM_Printer"
@@ -19,6 +20,6 @@ current_time = time.time()
 
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
-p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", 8.312)
+p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", socket.power)
 
 write_api.write(bucket=bucket, org=org, record=p)
