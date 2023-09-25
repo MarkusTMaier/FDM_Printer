@@ -20,6 +20,8 @@ current_time = time.time()
 
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
-p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", wattage_power)
-
-write_api.write(bucket=bucket, org=org, record=p)
+while True:
+    time.sleep(1)
+    wattage = wattage_power
+    p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", wattage)
+    write_api.write(bucket=bucket, org=org, record=p)
