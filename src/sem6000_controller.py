@@ -8,7 +8,7 @@ import bluepy
 PW = "0000"
 MYMAC = '6C:79:B8:60:5F:9D'  #MAC adress of the Voltcraft SEM6000 device, Raspberry Pi MAC: E4:5F:01:80:F2:2E
 socket = None
-wattage_power = None
+wattage_power = 8.111
 while True:
   time.sleep(1)
   try:
