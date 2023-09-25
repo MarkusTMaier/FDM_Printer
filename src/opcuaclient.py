@@ -2,6 +2,7 @@ import asyncio
 import configparser
 
 from asyncua import Client
+from sem6000_controller import socket
 
 async def get_values():
     config = configparser.ConfigParser()
@@ -36,7 +37,7 @@ async def get_values():
         6128, 6129, 6130, 6131, 6132, 6133, 6134, 6135, 6136, 6137, 6138, 6139,
         6140, 6141, 6142, 6143, 6144, 6145, 6146, 6147, 6148, 6149, 6150, 6151,
         6152, 6153, 6154, 6155, 6156, 6157, 6158, 6159, 6160, 6161, 6162, 6163,
-        6164, 6165, 6166, 6167, 6168, 6169, 6170]
+        6164, 6165, 6166, 6167, 6168, 6169, 6170, 6171, 6172]
 
 
         for i in all_indexes:  # Go through each index in the list
@@ -46,6 +47,10 @@ async def get_values():
             # Handle special cases
             if i in special_indexes:
                 final_value = value.Text
+
+            elif i == 6172:
+                final_value = socket.power
+
             else:
                 final_value = value
 
