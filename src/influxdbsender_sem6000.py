@@ -1,30 +1,24 @@
 import configparser
 import asyncio
 import time
-from influxdb_client import InfluxDBClient
+import influxdb_client
+from influxdb_client.client.write_api import SYNCHRONOUS
 
+
+bucket = "FDM_Printer"
 url = "https://westeurope-1.azure.cloud2.influxdata.com"
 org = "maier.markus@gmx.ch"
 token = "g_qCFMT_wIN0Mw8KYhEwbzlXv7PhNITUNO0LO36vN5qY9qrjYZJjIgXXXGV-nyORIzPnlOG6DjfRhGW5D9i3iA=="
 
-client = InfluxDBClient(url=url, token=token, org=org)
-
-bucket = "FDM_Printer"
-
+client = influxdb_client.InfluxDBClient(
+   url=url,
+   token=token,
+   org=org
+)
 current_time = time.time()
 
-data = [
-    {
-        "measurement": "value6172",
-        "tags": {"printer_id": "MK3S"},
-        "time": (current_time),
-        "fields": {
-            "Wattage": 5.0
-        }
-    }
-]
+write_api = client.write_api(write_options=SYNCHRONOUS)
 
-write_api = client.write_api(write_options=WriteOptions(bucket=bucket))
-write_api.write(bucket=bucket, org=org, record=data)
+p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", 8.312)
 
-client.close()
+write_api.write(bucket=bucket, org=org, record=p)
