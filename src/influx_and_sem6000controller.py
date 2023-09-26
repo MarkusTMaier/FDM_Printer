@@ -35,8 +35,8 @@ while True:
             if socket.login(PW) and socket.authenticated:
                 print("Login successful!")
                 socket.getSynConfig()
-            socket.getStatus()
-            wattage = socket.power
+        socket.getStatus()
+        wattage = socket.power
 
         p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", wattage)
         write_api.write(bucket=bucket, org=org, record=p)
