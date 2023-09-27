@@ -25,7 +25,7 @@ client = influxdb_client.InfluxDBClient(
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
 while True:
-    time.sleep(5)
+    time.sleep(1)
     try:
         if socket == None:
             print("Connecting... ", end="")
