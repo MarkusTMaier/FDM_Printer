@@ -160,16 +160,16 @@ async def variableupdater(server):
         # Update the value of the manufacturer node
         node_values = {
             6001: (
-            ua.LocalizedText(Text=config.get('opcUa', 'manufacturer'), Locale="en"), ua.VariantType.LocalizedText),
-            6002: (config.get('opcUa', 'uri'), ua.VariantType.String),
-            6003: (config.get('opcUa', 'serialNumber'), ua.VariantType.String),
-            6004: (int(config.get('hardcoded', 'operationMode')), ua.VariantType.UInt16),
-            6005: (str(values['jobFileName']), ua.VariantType.String),
-            6007: (ua.LocalizedText(Text=str(CurrentProductionState), Locale="en"), ua.VariantType.LocalizedText),
+            ua.LocalizedText(Text=config.get('opcUa', 'manufacturer'), Locale="en"), ua.VariantType.LocalizedText), #Device Manufacturar
+            6002: (config.get('opcUa', 'uri'), ua.VariantType.String),                      #Product Instance Uri
+            6003: (config.get('opcUa', 'serialNumber'), ua.VariantType.String),             #Serial Number
+            6004: (int(config.get('hardcoded', 'operationMode')), ua.VariantType.UInt16),   #Operation Mode
+            6005: (str(values['jobFileName']), ua.VariantType.String),                      #Current Print Job Name
+            6007: (ua.LocalizedText(Text=str(CurrentProductionState), Locale="en"), ua.VariantType.LocalizedText),  #Current State
             6008: (ua.NodeId(valueNodeID,5),ua.VariantType.NodeId),
-            6011: (int(PowerOnDuration), ua.VariantType.UInt32),
-            6013: (int(2022), ua.VariantType.UInt16),
-            6014: ('1.1', ua.VariantType.String),
+            6011: (int(PowerOnDuration), ua.VariantType.UInt32),        #Power On Duration
+            6013: (int(2022), ua.VariantType.UInt16),                   #Year of Construction
+            6014: ('1.1', ua.VariantType.String),                       #Software Revision
             6015: (str(values['fileName1']), ua.VariantType.String),
             6016: (str(values['fileType1']), ua.VariantType.String),
             6017: (str(values['fileName9']), ua.VariantType.String),
@@ -177,35 +177,35 @@ async def variableupdater(server):
             6019: (str(values['fileName2']), ua.VariantType.String),
             6020: (str(values['fileType2']), ua.VariantType.String),
             6021: (values['progressPrintTime'], ua.VariantType.Double),
-            6022: (values['temperatureAActual'],ua.VariantType.Double),
+            6022: (values['temperatureAActual'],ua.VariantType.Double), #Ambient Temperature
             6023: (str(values['fileName0']), ua.VariantType.String),
             6024: (str(values['fileType0']), ua.VariantType.String),
-            6025: (values['jobEstimatedPrintTime'], ua.VariantType.Double),
+            6025: (values['jobEstimatedPrintTime'], ua.VariantType.Double),         #Estimated Print Time
             6026: (str(values['spoolName7']), ua.VariantType.String),
             6027: (str(values['fileName3']), ua.VariantType.String),
             6028: (str(values['fileType3']), ua.VariantType.String),
             6029: (values['progressPrintTimeLeft'], ua.VariantType.Double),
-            6030: (values['jobFilamentLength'], ua.VariantType.Double),
-            6031: (str(values['fileName4']), ua.VariantType.String),
-            6032: (str(values['fileType4']), ua.VariantType.String),
-            6033: ('Additive manufacturing machine', ua.VariantType.String),
-            6034: (values['currentToolTemperatureActual'], ua.VariantType.Double),
+            6030: (values['jobFilamentLength'], ua.VariantType.Double),             #Estimated Filament Length
+            6031: (str(values['fileName4']), ua.VariantType.String),                
+            6032: (str(values['fileType4']), ua.VariantType.String),                
+            6033: ('Additive manufacturing machine', ua.VariantType.String),        #Device Class
+            6034: (values['currentToolTemperatureActual'], ua.VariantType.Double),  #Extruder Temperature
             6035: (str(values['fileName5']), ua.VariantType.String),
             6036: (str(values['fileType5']), ua.VariantType.String),
-            6037: (values['jobFilamentVolume'], ua.VariantType.Double),
+            6037: (values['jobFilamentVolume'], ua.VariantType.Double),             #Estimated Filament Volume
             6038: (str(values['stateError']), ua.VariantType.String),
             6039: (str(values['fileName6']), ua.VariantType.String),
             6040: (str(values['fileType6']), ua.VariantType.String),
-            6041: ('EMO 9 F24/N 47.3895819 E 8.5134454', ua.VariantType.String),
+            6041: ('EMO 9 F24/N 47.3895819 E 8.5134454', ua.VariantType.String),    #Device Location
             6042: (values['progressCompletion'], ua.VariantType.Double),
             6043: (str(values['fileName7']), ua.VariantType.String),
             6044: (str(values['fileType7']), ua.VariantType.String),
             6045: (str(values['spoolName8']), ua.VariantType.String),
-            6046: (values['currentBedTemperatureActual'], ua.VariantType.Double),
+            6046: (values['currentBedTemperatureActual'], ua.VariantType.Double),   #Bed Temperature
             6047: (str(values['fileName8']), ua.VariantType.String),
             6048: (str(values['fileType8']), ua.VariantType.String),
-            6049: (ua.LocalizedText(Text='MK3S+', Locale="en"), ua.VariantType.LocalizedText),
-            6050: ('2022-1', ua.VariantType.String),
+            6049: (ua.LocalizedText(Text='MK3S+', Locale="en"), ua.VariantType.LocalizedText),  #device Model
+            6050: ('2022-1', ua.VariantType.String),                                            #Product Code
             6052: (values['temperatureATarget'], ua.VariantType.Double),
             6053: (str(values['spoolName9']), ua.VariantType.String),
             6054: (values['spoolCost1'], ua.VariantType.Double),
@@ -249,29 +249,29 @@ async def variableupdater(server):
             6092: (values['printerProfileVolumeHeight'], ua.VariantType.Double),
             6093: (values['spoolProfileDensity3'], ua.VariantType.Double),
             6094: (values['spoolProfileDiameter3'], ua.VariantType.Double),
-            6095: (str(values['selectedSpoolName']), ua.VariantType.String),
-            6096: (values['selectedSpoolCost'], ua.VariantType.Double),
-            6097: (values['selectedSpoolProfileDensity'], ua.VariantType.Double),
-            6098: (values['selectedSpoolProfileDiameter'], ua.VariantType.Double),
-            6099: (str(values['selectedSpoolProfileMaterial']), ua.VariantType.String),
-            6100: (str(values['selectedSpoolProfileVendor']), ua.VariantType.String),
-            6101: (values['selectedSpoolTempOffset'], ua.VariantType.Double),
-            6102: (values['selectedSpoolUsed'], ua.VariantType.Double),
-            6103: (values['selectedSpoolWeight'], ua.VariantType.Double),
+            6095: (str(values['selectedSpoolName']), ua.VariantType.String),                #Selected Spool Name
+            6096: (values['selectedSpoolCost'], ua.VariantType.Double),                     #Selected Spool Cost
+            6097: (values['selectedSpoolProfileDensity'], ua.VariantType.Double),           #Selected Spool Density
+            6098: (values['selectedSpoolProfileDiameter'], ua.VariantType.Double),          #Selected Spool Diameter
+            6099: (str(values['selectedSpoolProfileMaterial']), ua.VariantType.String),     #Selected Spool Material
+            6100: (str(values['selectedSpoolProfileVendor']), ua.VariantType.String),       #Selected Spool Vendor
+            6101: (values['selectedSpoolTempOffset'], ua.VariantType.Double),               #Selected Spool Temperature Offset
+            6102: (values['selectedSpoolUsed'], ua.VariantType.Double),                     #Selected Spool Used
+            6103: (values['selectedSpoolWeight'], ua.VariantType.Double),                   #Selected Spool Weight
             6104: (str(values['spoolProfileMaterial3']), ua.VariantType.String),
             6105: (values['spoolTempOffset3'], ua.VariantType.Double),
-            6106: (str(values['spoolName0']), ua.VariantType.String),
-            6107: (values['spoolCost0'], ua.VariantType.Double),
-            6108: (values['spoolProfileDensity0'], ua.VariantType.Double),
-            6109: (values['spoolProfileDiameter0'], ua.VariantType.Double),
-            6110: (str(values['spoolProfileMaterial0']), ua.VariantType.String),
-            6111: (values['spoolTempOffset0'], ua.VariantType.Double),
-            6112: (values['spoolUsed0'], ua.VariantType.Double),
-            6113: (str(values['spoolProfileVendor0']), ua.VariantType.String),
-            6114: (values['spoolWeight0'], ua.VariantType.Double),
-            6115: (values['spoolUsed3'], ua.VariantType.Double),
+            6106: (str(values['spoolName0']), ua.VariantType.String),                       #Spool0 Name, 
+            6107: (values['spoolCost0'], ua.VariantType.Double),                            #Spool0 Cost, 
+            6108: (values['spoolProfileDensity0'], ua.VariantType.Double),                  #Spool0 Density
+            6109: (values['spoolProfileDiameter0'], ua.VariantType.Double),                 #Spool0 Diameter
+            6110: (str(values['spoolProfileMaterial0']), ua.VariantType.String),            #Spool0 Material
+            6111: (values['spoolTempOffset0'], ua.VariantType.Double),                      #Spool0 Temperature Offset
+            6112: (values['spoolUsed0'], ua.VariantType.Double),                            #Spool0 Used
+            6113: (str(values['spoolProfileVendor0']), ua.VariantType.String),              #Spool0 Vendor
+            6114: (values['spoolWeight0'], ua.VariantType.Double),                          #Spool0 Weight
+            6115: (values['spoolUsed3'], ua.VariantType.Double),    
             6116: (str(values['spoolProfileVendor3']), ua.VariantType.String),
-            6117: (str(values['spoolName1']), ua.VariantType.String),
+            6117: (str(values['spoolName1']), ua.VariantType.String),                       #Spool1 Name,
             6118: (values['spoolWeight3'], ua.VariantType.Double),
             6119: (values['spoolCost4'], ua.VariantType.Double),
             6120: (str(values['spoolName2']), ua.VariantType.String),
