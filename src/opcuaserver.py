@@ -14,7 +14,7 @@ from octoprintbroker import get_values
 from opcua.ua import NodeId
 from typing import List
 
-logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.ERROR)
 _logger = logging.getLogger('asyncua')
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -8,7 +8,7 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from opcuaclient import get_values
 
 # Set up logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.ERROR)
 
 
 class DataCollectorAndSender:
