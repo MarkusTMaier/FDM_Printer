@@ -57,7 +57,7 @@ class DataCollectorAndSender:
             try:
                 return await get_values()
             except asyncio.exceptions.TimeoutError:
-                logging.warning(f"Connection attempt {attempt + 1} failed. Retrying...")
+                #logging.warning(f"Connection attempt {attempt + 1} failed. Retrying...")
                 await asyncio.sleep(self.retry_delay)
         else:
             logging.error(f"Could not establish connection after {self.max_retries} attempts.")
@@ -77,7 +77,7 @@ class DataCollectorAndSender:
 
         while True:
             try:
-                logging.info("Prepare values to send to InfluxDB")
+                #logging.info("Prepare values to send to InfluxDB")
 
                 values = await self._fetch_from_opcua()
                 if values is None:
@@ -105,7 +105,7 @@ class DataCollectorAndSender:
 
                 if points_to_send:
                     self.write_api.write(bucket=self.influx_bucket, org=self.influx_org, record=points_to_send)
-                    logging.info("__________________values sent!__________________")
+                    #logging.info("__________________values sent!__________________")
 
                 await asyncio.sleep(self.loop_sleep)
 
