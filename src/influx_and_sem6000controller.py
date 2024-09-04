@@ -41,7 +41,7 @@ while True:
         p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", wattage)
         write_api.write(bucket=bucket, org=org, record=p)
 
-    except (SEMSocket.NotConnectedException, bluepy.btle.BTLEDisconnectError, BrokenPipeError):
+    except (SEMSocket.NotConnectedException, BrokenPipeError):
         print("Restarting...")
         if socket != None:
             socket.disconnect()
