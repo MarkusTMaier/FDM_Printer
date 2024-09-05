@@ -3,8 +3,6 @@ import time
 import datetime
 import uuid
 
-#why isnt it working???
-
 class SEMSocket():
     icons = ["plug", "speaker", "flatscreen", "desk lamp", "oven", "kitchen machine", "canning pot", "stanging lamp", "kettle", "mixer", "hanging lamp", "toaster", "washing machine", "fan", "fridge", "iron", "printer", "monitor", "notebook", "workstation", "video recorder", "curling iron", "heater"]
     password = "0000"
