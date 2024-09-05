@@ -25,19 +25,24 @@ client = influxdb_client.InfluxDBClient(
 write_api = client.write_api(write_options=SYNCHRONOUS)
 
 while True:
-    time.sleep(1)
-    try:
-        if socket == None:
-            print("Connecting... ", end="")
-            socket = SEMSocket(MYMAC)
-            print("Success!")
-            print("You're now connected to: {} (Icon: {})".format(socket.name, socket.icons[0]))
-            if socket.login(PW) and socket.authenticated:
-                print("Login successful!")
-                socket.getSynConfig()
-        socket.getStatus()
-        wattage = socket.power
+  time.sleep(1)
+  try:
+    if socket == None:
+      print("Connecting... ", end="")
+      socket = SEMSocket(MYMAC)
+      print("Success!")
+      print("You're now connected to: {} (Icon: {})".format(socket.name, socket.icons[0]))
+      if socket.login(PW) and socket.authenticated:
+        print("Login successful!")
+        socket.getSynConfig()
+    socket.getStatus()
+    wattage = socket.power
 
-        p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", wattage)
-        write_api.write(bucket=bucket, org=org, record=p)
+    p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", wattage)
+    write_api.write(bucket=bucket, org=org, record=p)
 
+  except (SEMSocket.NotConnectedException, bluepy.btle.BTLEDisconnectError, BrokenPipeError):
+    print("Restarting...")
+    if socket != None:
+      socket.disconnect()
+      socket = None
