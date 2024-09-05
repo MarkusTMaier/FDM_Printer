@@ -41,8 +41,8 @@ node_ids = [
 amount_of_node_ids = len(node_ids)
 
 j = 0
+i = 0
 while j < 5:
-    i_= 0
     values = get_values()
     while i < amount_of_node_ids:
         p = influxdb_client.Point(f"value{node_ids[i]}").tag("printer_id", "MK3S").field("Wattage", values[node_ids[i]])
@@ -51,4 +51,5 @@ while j < 5:
     time.sleep(2)
     print(f"iteration {j+1} of 5 done")
     j = j + 1
+    i = 0
     
