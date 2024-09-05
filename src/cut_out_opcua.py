@@ -35,29 +35,29 @@ while j < 5:
     # Update the value of the manufacturer node
     node_values = {
         6005: (str(values['jobFileName'])),                      #Current Print Job Name
-        6007: (ua.LocalizedText(Text=str(CurrentProductionState), Locale="en"), ua.VariantType.LocalizedText),  #Current State
-        6022: (values['temperatureAActual'],ua.VariantType.Double), #Ambient Temperature
-        6025: (values['jobEstimatedPrintTime'], ua.VariantType.Double),         #Estimated Print Time
-        6029: (values['progressPrintTimeLeft'], ua.VariantType.Double),
-        6030: (values['jobFilamentLength'], ua.VariantType.Double),             #Estimated Filament Length             
-        6033: ('Additive manufacturing machine', ua.VariantType.String),        #Device Class
-        6034: (values['currentToolTemperatureActual'], ua.VariantType.Double),  #Extruder Temperature
-        6037: (values['jobFilamentVolume'], ua.VariantType.Double),             #Estimated Filament Volume
-        6041: ('EMO 9 F24/N 47.3895819 E 8.5134454', ua.VariantType.String),    #Device Location
-        6042: (values['progressCompletion'], ua.VariantType.Double),
-        6046: (values['currentBedTemperatureActual'], ua.VariantType.Double),   #Bed Temperature
-        6049: (ua.LocalizedText(Text='MK3S+', Locale="en"), ua.VariantType.LocalizedText),  #device Model
+        6007: (ua.LocalizedText(Text=str(CurrentProductionState), Locale="en")),  #Current State
+        6022: (values['temperatureAActual']), #Ambient Temperature
+        6025: (values['jobEstimatedPrintTime']),         #Estimated Print Time
+        6029: (values['progressPrintTimeLeft']),
+        6030: (values['jobFilamentLength']),             #Estimated Filament Length             
+        6033: ('Additive manufacturing machine'),        #Device Class
+        6034: (values['currentToolTemperatureActual']),  #Extruder Temperature
+        6037: (values['jobFilamentVolume']),             #Estimated Filament Volume
+        6041: ('EMO 9 F24/N 47.3895819 E 8.5134454'),    #Device Location
+        6042: (values['progressCompletion']),
+        6046: (values['currentBedTemperatureActual']),   #Bed Temperature
+        6049: (ua.LocalizedText(Text='MK3S+', Locale="en")),  #device Model
         6050: ('2022-1', ua.VariantType.String),                                            #Product Code
-        6052: (values['temperatureATarget'], ua.VariantType.Double),
-        6095: (str(values['selectedSpoolName']), ua.VariantType.String),                #Selected Spool Name
-        6096: (values['selectedSpoolCost'], ua.VariantType.Double),                     #Selected Spool Cost
-        6097: (values['selectedSpoolProfileDensity'], ua.VariantType.Double),           #Selected Spool Density
-        6098: (values['selectedSpoolProfileDiameter'], ua.VariantType.Double),          #Selected Spool Diameter
-        6099: (str(values['selectedSpoolProfileMaterial']), ua.VariantType.String),     #Selected Spool Material
-        6100: (str(values['selectedSpoolProfileVendor']), ua.VariantType.String),       #Selected Spool Vendor
-        6101: (values['selectedSpoolTempOffset'], ua.VariantType.Double),               #Selected Spool Temperature Offset
-        6102: (values['selectedSpoolUsed'], ua.VariantType.Double),                     #Selected Spool Used
-        6103: (values['selectedSpoolWeight'], ua.VariantType.Double),                   #Selected Spool Weight
+        6052: (values['temperatureATarget']),
+        6095: (str(values['selectedSpoolName'])),                #Selected Spool Name
+        6096: (values['selectedSpoolCost']),                     #Selected Spool Cost
+        6097: (values['selectedSpoolProfileDensity']),           #Selected Spool Density
+        6098: (values['selectedSpoolProfileDiameter']),          #Selected Spool Diameter
+        6099: (str(values['selectedSpoolProfileMaterial'])),     #Selected Spool Material
+        6100: (str(values['selectedSpoolProfileVendor'])),       #Selected Spool Vendor
+        6101: (values['selectedSpoolTempOffset']),               #Selected Spool Temperature Offset
+        6102: (values['selectedSpoolUsed']),                     #Selected Spool Used
+        6103: (values['selectedSpoolWeight']),                   #Selected Spool Weight
     }
 
 
