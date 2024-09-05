@@ -35,7 +35,7 @@ while j < 5:
     # Update the value of the manufacturer node
     node_values = {
         6005: (str(values['jobFileName'])),                      #Current Print Job Name
-        6007: (ua.LocalizedText(Text=str(CurrentProductionState), Locale="en")),  #Current State
+        6007: (str('state')),  #Current State
         6022: (values['temperatureAActual']), #Ambient Temperature
         6025: (values['jobEstimatedPrintTime']),         #Estimated Print Time
         6029: (values['progressPrintTimeLeft']),
@@ -46,8 +46,7 @@ while j < 5:
         6041: ('EMO 9 F24/N 47.3895819 E 8.5134454'),    #Device Location
         6042: (values['progressCompletion']),
         6046: (values['currentBedTemperatureActual']),   #Bed Temperature
-        6049: (ua.LocalizedText(Text='MK3S+', Locale="en")),  #device Model
-        6050: ('2022-1', ua.VariantType.String),                                            #Product Code
+        6050: ('2022-1'),                                            #Product Code
         6052: (values['temperatureATarget']),
         6095: (str(values['selectedSpoolName'])),                #Selected Spool Name
         6096: (values['selectedSpoolCost']),                     #Selected Spool Cost
