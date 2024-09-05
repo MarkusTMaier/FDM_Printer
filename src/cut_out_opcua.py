@@ -41,7 +41,7 @@ node_ids = [
 amount_of_node_ids = len(node_ids)
 
 j = 0
-while True:
+while j < 5:
     i_= 0
     values = get_values()
     while i < amount_of_node_ids:
@@ -49,4 +49,6 @@ while True:
         write_api.write(bucket=bucket, org=org, record=p)
         i = i + 1
     time.sleep(2)
+    print(f"iteration {j+1} of 5 done")
+    j = j + 1
     
