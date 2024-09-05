@@ -131,7 +131,7 @@ class SEM6000():
             self._bluetooth_lowenergy_interface.connect(self.connection_settings["device_address"])
 
             # this is necessary since hardware version = 3
-            self._bluetooth_lowenergy_interface.set_mtu(22);
+            self._bluetooth_lowenergy_interface.set_mtu(160);
         except Exception as e:
             self._disconnect()
             raise e
