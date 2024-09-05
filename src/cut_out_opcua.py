@@ -23,7 +23,7 @@ write_api = client.write_api(write_options=SYNCHRONOUS)
 #defining node id's
 node_ids = [
             6005, 6007, 6022, 6025, 6029, 6030, 6033, 6034, 6037, 6041, 6042, 6046,
-            6049, 6050, 6052, 6095, 6096, 6097, 6098, 6099, 6100, 6101, 6102, 6103,
+            6050, 6052, 6095, 6096, 6097, 6098, 6099, 6100, 6101, 6102, 6103,
         ]
 
 amount_of_node_ids = len(node_ids)
