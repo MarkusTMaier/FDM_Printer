@@ -45,7 +45,11 @@ i = 0
 while j < 5:
     values = get_values()
     while i < amount_of_node_ids:
-        p = influxdb_client.Point(f"value{node_ids[i]}").tag("printer_id", "MK3S").field("Wattage", values[node_ids[i]])
+        current_id = node_ids[i]
+        print(current_id)
+        current_value = values[current_id]
+        print(current_value)
+        p = influxdb_client.Point(f"value{node_ids[i]}").tag("printer_id", "MK3S").field("Wattage", current_value)
         write_api.write(bucket=bucket, org=org, record=p)
         i = i + 1
     time.sleep(2)
