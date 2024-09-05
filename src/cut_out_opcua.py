@@ -28,10 +28,11 @@ node_ids = [
 
 amount_of_node_ids = len(node_ids)
 
-j = 0
+#Infinite loop to send data to InfluxDB, happens every 2 seconds
 i = 0
-while j < 5:
+while True:
     values = get_values()
+
     # Update the value of the manufacturer node
     node_values = {
         6005: (values['jobFileName']),                      #Current Print Job Name
@@ -59,17 +60,15 @@ while j < 5:
         6103: (values['selectedSpoolWeight']),                   #Selected Spool Weight
     }
 
-
+    #write and send values to InfluxDB
     while i < amount_of_node_ids:
         current_id = node_ids[i]
-        print(current_id)
         current_value = node_values[current_id]
-        print(current_value)
         p = influxdb_client.Point(f"value{node_ids[i]}").tag("printer_id", "MK3S").field("Wattage", current_value)
         write_api.write(bucket=bucket, org=org, record=p)
         i = i + 1
+
+    #sleep for 2 seconds, then repeat loop
     time.sleep(2)
-    print(f"iteration {j+1} of 5 done")
-    j = j + 1
     i = 0
     
