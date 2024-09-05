@@ -34,7 +34,7 @@ while j < 5:
     values = get_values()
     # Update the value of the manufacturer node
     node_values = {
-        6005: (str(values['jobFileName']), ua.VariantType.String),                      #Current Print Job Name
+        6005: (str(values['jobFileName'])),                      #Current Print Job Name
         6007: (ua.LocalizedText(Text=str(CurrentProductionState), Locale="en"), ua.VariantType.LocalizedText),  #Current State
         6022: (values['temperatureAActual'],ua.VariantType.Double), #Ambient Temperature
         6025: (values['jobEstimatedPrintTime'], ua.VariantType.Double),         #Estimated Print Time
