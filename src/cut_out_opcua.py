@@ -34,8 +34,8 @@ while j < 5:
     values = get_values()
     # Update the value of the manufacturer node
     node_values = {
-        6005: ((values['jobFileName'])),                      #Current Print Job Name
-        6007: (str('state')),  #Current State
+        6005: (values['jobFileName']),                      #Current Print Job Name
+        6007: (values['printState']),  #Current State
         6022: (values['temperatureAActual']), #Ambient Temperature
         6025: (values['jobEstimatedPrintTime']),         #Estimated Print Time
         6029: (values['progressPrintTimeLeft']),
