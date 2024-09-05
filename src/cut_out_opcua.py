@@ -5,6 +5,7 @@ import time
 from octoprintbroker import get_values
 import influxdb_client
 from influxdb_client.client.write_api import SYNCHRONOUS
+import librtd
 
 #all of this is influxDB stuff
 bucket = "FDM_Printer"
@@ -67,6 +68,11 @@ while True:
         p = influxdb_client.Point(f"value{node_ids[i]}").tag("printer_id", "MK3S").field("Wattage", current_value)
         write_api.write(bucket=bucket, org=org, record=p)
         i = i + 1
+
+    temperature = librtd.get(0,7)
+    temperature = round(temperature, 2)
+    p = influxdb_client.Point(f"value{6173}").tag("printer_id", "MK3S").field("°C", temperature)
+    write_api.write(bucket=bucket, org=org, record=p)
 
     #sleep for 2 seconds, then repeat loop
     time.sleep(2)
