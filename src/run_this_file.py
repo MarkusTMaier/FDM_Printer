@@ -61,19 +61,23 @@ while True:
         6103: (values['selectedSpoolWeight']),                   #Selected Spool Weight
     }
 
-    #write and send values to InfluxDB
-    while i < amount_of_node_ids:
-        current_id = node_ids[i]
-        current_value = node_values[current_id]
-        p = influxdb_client.Point(f"value{node_ids[i]}").tag("printer_id", "MK3S").field("Wattage", current_value)
+    #write and send values to InfluxDB, print error if not possible and try again
+    try:
+        while i < amount_of_node_ids:
+            current_id = node_ids[i]
+            current_value = node_values[current_id]
+            p = influxdb_client.Point(f"value{node_ids[i]}").tag("printer_id", "MK3S").field("Wattage", current_value)
+            write_api.write(bucket=bucket, org=org, record=p)
+            i = i + 1
+
+        temperature = librtd.get(0,7)
+        temperature = round(temperature, 2)
+        p = influxdb_client.Point(f"value{6173}").tag("printer_id", "MK3S").field("°C", temperature)
         write_api.write(bucket=bucket, org=org, record=p)
-        i = i + 1
-
-    temperature = librtd.get(0,7)
-    temperature = round(temperature, 2)
-    p = influxdb_client.Point(f"value{6173}").tag("printer_id", "MK3S").field("°C", temperature)
-    write_api.write(bucket=bucket, org=org, record=p)
-
+    except:
+        current_time = time.time()
+        print(f"Couldn't write to InfluxDB at {current_time}, trying again")
+    
     #sleep for 2 seconds, then repeat loop
     time.sleep(2)
     i = 0
