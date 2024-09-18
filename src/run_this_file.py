@@ -2,6 +2,9 @@
 #imports
 import os
 import time
+
+import influxdb_client.client
+import influxdb_client.client.exceptions
 from octoprintbroker import get_values
 import influxdb_client
 from influxdb_client.client.write_api import SYNCHRONOUS
@@ -74,7 +77,7 @@ while True:
         temperature = round(temperature, 2)
         p = influxdb_client.Point(f"value{6173}").tag("printer_id", "MK3S").field("°C", temperature)
         write_api.write(bucket=bucket, org=org, record=p)
-    except:
+    except influxdb_client.client.exceptions.InfluxDBError: 
         current_time = time.time()
         print(f"Couldn't write to InfluxDB at {current_time}, trying again")
     
