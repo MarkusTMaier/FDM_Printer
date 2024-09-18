@@ -1,4 +1,7 @@
 import time
+
+import influxdb_client.client
+import influxdb_client.client.exceptions
 from sem6000_library import SEMSocket
 import bluepy
 import configparser
@@ -38,8 +41,11 @@ while True:
     socket.getStatus()
     wattage = socket.power
 
-    p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", wattage)
-    write_api.write(bucket=bucket, org=org, record=p)
+    try:
+      p = influxdb_client.Point("value6172").tag("printer_id", "MK3S").field("Wattage", wattage)
+      write_api.write(bucket=bucket, org=org, record=p)
+    except influxdb_client.client.exceptions.InfluxDBError:
+      print("Error writing to InfluxDB, trying again.")
 
   except (SEMSocket.NotConnectedException, bluepy.btle.BTLEDisconnectError, BrokenPipeError):
     print("Restarting...")
