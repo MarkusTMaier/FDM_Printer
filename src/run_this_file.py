@@ -51,17 +51,7 @@ while True:
         6041: ('EMO 9 F24/N 47.3895819 E 8.5134454'),    #Device Location
         6042: (values['progressCompletion']),
         6046: (values['currentBedTemperatureActual']),   #Bed Temperature
-        6050: ('2022-1'),                                            #Product Code
-        6052: (values['temperatureATarget']),
-        6095: (str(values['selectedSpoolName'])),                #Selected Spool Name
-        6096: (values['selectedSpoolCost']),                     #Selected Spool Cost
-        6097: (values['selectedSpoolProfileDensity']),           #Selected Spool Density
-        6098: (values['selectedSpoolProfileDiameter']),          #Selected Spool Diameter
-        6099: (str(values['selectedSpoolProfileMaterial'])),     #Selected Spool Material
-        6100: (str(values['selectedSpoolProfileVendor'])),       #Selected Spool Vendor
-        6101: (values['selectedSpoolTempOffset']),               #Selected Spool Temperature Offset
-        6102: (values['selectedSpoolUsed']),                     #Selected Spool Used
-        6103: (values['selectedSpoolWeight']),                   #Selected Spool Weight
+
     }
 
     #write and send values to InfluxDB, print error if not possible and try again
