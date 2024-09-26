@@ -183,7 +183,7 @@ def get_values():
     for i, user in enumerate(c.users()['users']):
         attr_name = 'userAdmin{}'.format(i)
         var[attr_name] = user['admin']
-
+"""
     # FILAMENT MANAGER
     var['selectedSpoolCost'] = c.selections()['selections'][0]['spool']['cost']
     var['selectedSpoolId'] = c.selections()['selections'][0]['spool']['id']
@@ -197,7 +197,8 @@ def get_values():
     var['selectedSpoolUsed'] = c.selections()['selections'][0]['spool']['used']
     var['selectedSpoolWeight'] = c.selections()['selections'][0]['spool']['weight']
     var['selectedTool'] = c.selections()['selections'][0]['tool']
-
+"""
+    
     for i in range(10):
         var[f'spoolCost{i}'] = None
         var[f'spoolId{i}'] = None
